@@ -12,14 +12,24 @@ namespace StringMaker_Houk
         {
         }
 
+        // Variable to hold the input string for each method
+        private string _input = "";
+
+        // Set the input string
+        public void SetInput(string s)
+        {
+            _input = s;
+        }
+
         // Input a string and return the reverse of the string
         public string Reverse(string s)
         {
+            _input = s;
             string reverse = "";
             for (int i = s.Length - 1; i >= 0; i--)
             {
 
-                reverse += s[i];
+                reverse += _input[i];
             }
             return reverse;
         }
@@ -29,12 +39,13 @@ namespace StringMaker_Houk
         public string Reverse(string s, bool PreserveCaseLocation)
         {
             string reverse = "";
-            for (int i = s.Length - 1; i >= 0; i--)
+            _input = s;
+            for (int i = _input.Length - 1; i >= 0; i--)
             {
-                if (Char.IsUpper(s[s.Length - 1 - i]))
-                    reverse += s[i].ToString().ToUpper();
+                if (Char.IsUpper(_input[_input.Length - 1 - i]))
+                    reverse += _input[i].ToString().ToUpper();
                 else
-                    reverse += s[i].ToString().ToLower();
+                    reverse += _input[i].ToString().ToLower();
             }
             return reverse;
         }
@@ -42,27 +53,18 @@ namespace StringMaker_Houk
         // Input a string and return true if the string is symmetric
         public bool Symmetric(string s)
         {
+            _input = s;
             string reverse = "";
-            for (int i = s.Length - 1; i >= 0; i--)
+            for (int i = _input.Length - 1; i >= 0; i--)
             {
-                reverse += s[i];
+                reverse += _input[i];
             }
-            if (s == reverse)
+            if (_input == reverse)
                 return true;
             else
                 return false;
         }
-
-        // Variable to hold the input string to be fed into the ToString
-        // method
-        private string _input = "";
-
-        // Set the input string
-        public void SetInput(string s)
-        {
-            _input = s;
-        }
-
+            
         // Return the string as a number
         public override string ToString()
         {
@@ -136,7 +138,6 @@ namespace StringMaker_Houk
             if (obj == null) return false;
             //if obj is a string, compare it to the current data input
             return obj.ToString() == _input;
-
         }
     }
 }
