@@ -26,7 +26,7 @@ namespace StringMaker_Houk
         {
             _input = s;
             string reverse = "";
-            for (int i = s.Length - 1; i >= 0; i--)
+            for (int i = _input.Length - 1; i >= 0; i--)
             {
 
                 reverse += _input[i];
@@ -63,6 +63,11 @@ namespace StringMaker_Houk
                 return true;
             else
                 return false;
+        }
+
+        public string CallToString(string s)
+        {
+            return s.ToString();
         }
             
         // Return the string as a number

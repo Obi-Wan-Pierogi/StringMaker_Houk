@@ -18,7 +18,8 @@ namespace StringMaker_Houk
             Console.WriteLine("Convert a string to ASCII and return the summed value as words");
             string strAscii = "One Two Five Four";
             sm.SetInput(strAscii);
-            Console.WriteLine(sm.ToString() + "\n");
+            //Console.WriteLine(sm.ToString() + "\n");
+            Console.WriteLine(sm.CallToString(reverse) + "\n");
 
             Console.WriteLine("Reverse string with preserved case location");
             Console.WriteLine(sm.Reverse(reverse, true) + "\n");
